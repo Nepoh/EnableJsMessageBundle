@@ -1,0 +1,28 @@
+parameters:
+
+    nepoh_enable_js_message.class: Nepoh\EnableJsMessageBundle\Service\EnableJsMessageService
+    nepoh_enable_js_message.twig.extension.class: Nepoh\EnableJsMessageBundle\Twig\Extension\EnableJsMessageExtension
+    
+services:
+
+    nepoh_enable_js_message:
+        class: "%nepoh_enable_js_message.class%"
+        arguments:
+            - "%nepoh_enable_js_message.config%"
+        calls:
+            - [setTemplating, ["@?templating"]]
+
+    # templating is not injected to avoid circular reference when injecting into twig extension
+    nepoh_enable_js_message.no_templating:
+        class: "%nepoh_enable_js_message.class%"
+        public: false
+        arguments:
+            - "%nepoh_enable_js_message.config%"
+
+    nepoh_enable_js_message.twig.extension:
+        class: "%nepoh_enable_js_message.twig.extension.class%"
+        public: false
+        arguments:
+            - "@nepoh_enable_js_message.no_templating"
+        tags:
+            - { name: twig.extension }

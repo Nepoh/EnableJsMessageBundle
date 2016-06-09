@@ -1,0 +1,10 @@
+{% trans_default_domain 'nepoh_enable_js_message' %}
+{% macro link(url) %}<a href="{{ url }}" target="_blank">{{ 'link_text'|trans }}</a>{% endmacro %}
+{% import _self as macro %}
+<noscript>
+<div class="enable-js-message">
+{% block nepoh_enable_js_message %}
+	{{ 'message'|trans({'%link%': macro.link(url)})|raw }}.
+{% endblock %}
+</div>
+</noscript>

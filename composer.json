@@ -1,0 +1,25 @@
+{
+    "name": "nepoh/enable-js-message",
+    "type": "symfony-bundle",
+    "description": "Symfony Bundle for displaying a message when JavaScript is disabled in a user's browser.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nepoh",
+            "email": "nepoh@outlook.de"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.9",
+        "symfony/framework-bundle": "~2.3|~3.0",
+    },
+    "require-dev": {
+        "symfony/yaml": "~2.3|~3.0"
+    },
+    "suggest": {
+        "symfony/twig-bundle": "Render the message with Twig"
+    },
+    "autoload": {
+        "psr-4": { "Nepoh\\EnableJsMessageBundle\\": "" }
+    }
+}

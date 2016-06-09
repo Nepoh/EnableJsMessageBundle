@@ -1,0 +1,5 @@
+{% trans_default_domain 'nepoh_enable_js_message' %}
+{% block nepoh_enable_js_message %}
+	{% set link = 'link_text'|trans %}
+	{{ 'message'|trans({'%link%': link}) }}: {{ url }}
+{% endblock %}
